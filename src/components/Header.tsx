@@ -5,7 +5,6 @@ import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
-import { makeStyles } from '@mui/styles'
 import Divider from '@mui/material/Divider'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
@@ -17,17 +16,9 @@ import Drawer from '@mui/material/Drawer'
 
 import { useState } from 'react'
 
-const useStyles = makeStyles({
-  header_color: {
-    color: 'white'
-  }
-})
-
 type Anchor = 'top' | 'left' | 'bottom' | 'right'
 
 const Header = () => {
-  const classes = useStyles()
-
   const [state, setState] = useState({
     top: false,
     left: false,
@@ -102,7 +93,7 @@ const Header = () => {
             sx={{ mr: 2 }}
           >
             <MenuIcon
-              className={classes.header_color}
+              sx={{ color: 'white' }}
               onClick={toggleDrawer('left', true)}
             />
             <Drawer
@@ -117,14 +108,13 @@ const Header = () => {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1 }}
-            className={classes.header_color}
+            sx={{ flexGrow: 1, color: 'white' }}
           >
             Seven
           </Typography>
 
-          <Button color="inherit">
-            <span className={classes.header_color}>LOGIN</span>
+          <Button color="inherit" sx={{ color: 'white' }}>
+            <span>LOGIN</span>
           </Button>
         </Toolbar>
       </AppBar>

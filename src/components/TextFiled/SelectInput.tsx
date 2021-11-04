@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField'
 import MenuItem from '@mui/material/MenuItem'
-import { makeStyles } from '@mui/styles'
+
 import { FC } from 'react'
 import Grid from '@mui/material/Grid'
 
@@ -11,16 +11,8 @@ interface ISelectInputProps {
   SelectFunction: (city: string) => void
 }
 
-const useStyles = makeStyles({
-  select_style: {
-    width: '100%'
-  }
-})
-
 const SelectInput: FC<ISelectInputProps> = props => {
   const { data, text, value, SelectFunction } = props
-
-  let classes = useStyles()
 
   return (
     <Grid item xs={12}>
@@ -33,7 +25,9 @@ const SelectInput: FC<ISelectInputProps> = props => {
         onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
           SelectFunction(event.target.value)
         }
-        className={classes.select_style}
+        sx={{
+          width: '100%'
+        }}
       >
         {data.map((item, index) => (
           <MenuItem key={index} value={item}>

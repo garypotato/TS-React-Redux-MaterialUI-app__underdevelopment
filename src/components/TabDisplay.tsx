@@ -6,8 +6,6 @@ import VpnKeyIcon from '@mui/icons-material/VpnKey'
 
 import { useState } from 'react'
 
-import './TabDisplay.css'
-
 const TabDisplay = () => {
   const [value, setValue] = useState(0)
 
@@ -36,10 +34,20 @@ const TabDisplay = () => {
           position: 'absolute',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          background: `linear-gradient(60deg, #1e88e5, #1976d2)`
+          background: `linear-gradient(60deg, #1e88e5, #1976d2)`,
+          boxShadow: `0 12px 20px -10px rgb(0 0 0 / 28%), 0 4px 20px 0px rgb(0 0 0 / 12%), 0 7px 8px -5px rgb(0 0 0 / 20%)`
         }}
       >
-        <Tabs value={value} onChange={handleChange}>
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          centered={true}
+          sx={{
+            '& .MuiTabs-indicator': {
+              backgroundColor: 'transparent'
+            }
+          }}
+        >
           {newTabList.map((tab, index) => {
             return (
               <Tab
@@ -47,10 +55,19 @@ const TabDisplay = () => {
                 iconPosition="start"
                 label={tab.cate}
                 key={index}
-                // sx={{
-                //   color: 'white'
-                // }}
-                className="Tab-select"
+                sx={{
+                  color: 'white',
+                  opacity: '0.7',
+                  '&.Mui-selected': {
+                    opacity: '1',
+                    borderRadius: '10px',
+                    backgroundImage: `linear-gradient(
+                    rgba(255, 255, 255, 0.2),
+                    rgba(255, 255, 255, 0.2)
+                    )`,
+                    color: 'white'
+                  }
+                }}
               />
             )
           })}
