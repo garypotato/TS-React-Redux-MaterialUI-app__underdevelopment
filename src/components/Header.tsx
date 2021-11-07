@@ -13,12 +13,22 @@ import ListItemText from '@mui/material/ListItemText'
 import InboxIcon from '@mui/icons-material/MoveToInbox'
 import MailIcon from '@mui/icons-material/Mail'
 import Drawer from '@mui/material/Drawer'
+import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded'
 
-import { useState } from 'react'
+import { FC, useState } from 'react'
+import { IBranch } from '../type.d'
+import colorList from '../constant/colorList'
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right'
 
-const Header = () => {
+interface IHeaderProps {
+  branchesList: Array<IBranch>
+  setBranch: (id: number) => void
+}
+
+const Header: FC<IHeaderProps> = props => {
+  const { branchesList, setBranch } = props
+
   const [state, setState] = useState({
     top: false,
     left: false,
@@ -47,6 +57,17 @@ const Header = () => {
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
+      <List>
+        {branchesList?.map((branch, index) => (
+          <ListItem button key={index} onClick={() => setBranch(branch.id)}>
+            <ListItemIcon>
+              <LocationOnRoundedIcon color={colorList[index]} />
+            </ListItemIcon>
+            <ListItemText primary={branch.suburb} />
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
       <List>
         {['Buy', 'Rent'].map((text, index) => (
           <ListItem button key={text}>

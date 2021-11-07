@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import InputForm from './components/InputForm/InputForm'
@@ -16,6 +16,16 @@ import ClearIcon from '@mui/icons-material/Clear'
 import { selectInputText, suburbList } from './constant/suburbList'
 import TabDisplay from './components/TabDisplay'
 
+import { useDispatch, useSelector } from 'react-redux'
+
+import { IRootState, IBranch } from './type.d'
+import { getLocalStorage, setLocalStorage } from './utils/_utils'
+import { getCompanyBranches } from './api/getCompanyBranches'
+import {
+  setCompanyBranches,
+  setSelectedBranch
+} from './Redux/Reducers/companyReducer/companyActions'
+
 function App() {
   const [suburb, setSuburb] = useState('')
   const [rent, setRent] = useState(true)
@@ -23,9 +33,39 @@ function App() {
   const [bathrooms, setBathrooms] = useState(2)
   const [carparks, setCarparks] = useState(1)
 
+  const dispatch = useDispatch()
+  let { companyName, branches } = useSelector(
+    (state: IRootState) => state.company
+  )
+
+  let headerSetBranch = useCallback(
+    (id: number) => {
+      dispatch(setSelectedBranch(id))
+    },
+    [branches]
+  )
+
+  // todo -> set Company branches and default branch
+  useEffect(() => {
+    const result = getCompanyBranches(companyName)
+    const selectedBranch = getLocalStorage('selectedBranch')
+    result.then(resp => {
+      const res = resp as any as Array<IBranch>
+      dispatch(setCompanyBranches(res))
+      let branchID = res.map(branch => branch.id)
+      // todo -> if local storage `selectedBranch` are one of the branches, then go on
+      if (branchID.includes(selectedBranch)) {
+        dispatch(setSelectedBranch(selectedBranch))
+      } else {
+        setLocalStorage('selectedBranch', res[0].id)
+        dispatch(setSelectedBranch(res[0].id))
+      }
+    })
+  }, [])
+
   return (
     <div style={{ background: '#EEEEEE' }}>
-      <Header />
+      <Header branchesList={branches} setBranch={headerSetBranch} />
 
       <SearchSection>
         <InputForm
