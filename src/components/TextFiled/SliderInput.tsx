@@ -18,7 +18,7 @@ const marks = [
   { value: 6, label: '6' }
 ]
 
-export const SliderInput: FC<ISliderInputProps> = props => {
+const SliderInput: FC<ISliderInputProps> = props => {
   const { label, setValue, value, bottomLine } = props
 
   // todo -> add style and border bottom line
@@ -47,3 +47,5 @@ export const SliderInput: FC<ISliderInputProps> = props => {
     </Grid>
   )
 }
+
+export default SliderInput

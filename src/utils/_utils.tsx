@@ -1,4 +1,9 @@
+import StoreIcon from '@mui/icons-material/Store'
+import VpnKeyIcon from '@mui/icons-material/VpnKey'
 // ! local storage
+
+import { IProperty, newListElement } from '../type.d'
+
 // * set localStorage, will expired in 4 hours
 export interface localStorageData {
   data: any
@@ -26,4 +31,28 @@ export const getLocalStorage = (key: string) => {
     return null
   }
   return newVal.data
+}
+
+// ! separate properties to 'rent' and 'sell'
+export const separateRentAndSale = (data: Array<IProperty>) => {
+  let newList: Array<newListElement> = [
+    { cate: 'rent', icon: <VpnKeyIcon />, properties: [] },
+    { cate: 'sale', icon: <StoreIcon />, properties: [] }
+  ]
+  data.map(property => {
+    if (property.objective === 'rent') {
+      newList.map(item => {
+        if (item.cate === 'rent') {
+          item.properties.push(property)
+        }
+      })
+    } else {
+      newList.map(item => {
+        if (item.cate === 'sale') {
+          item.properties.push(property)
+        }
+      })
+    }
+  })
+  return newList
 }

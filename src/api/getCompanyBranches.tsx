@@ -1,7 +1,7 @@
 import axios from '../utils/requestDomainAPI'
 
 /**
- * * get branches Information
+ * ! get branches Information
  * @param {String} params  the name of the Company
  * @returns
  */

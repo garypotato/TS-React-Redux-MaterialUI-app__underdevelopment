@@ -1,4 +1,5 @@
 import { OverridableStringUnion } from '@mui/types'
+
 type color = OverridableStringUnion<
   | 'inherit'
   | 'action'

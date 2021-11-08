@@ -10,7 +10,7 @@ interface ISwitchInputProps {
   setRentCheck: (check: boolean) => void
 }
 
-export const SwitchInput: FC<ISwitchInputProps> = props => {
+const SwitchInput: FC<ISwitchInputProps> = props => {
   const { textAfter, textBefore, rentCheck, setRentCheck } = props
 
   const renderSwitchLabel = (text: string) => {
@@ -48,3 +48,4 @@ export const SwitchInput: FC<ISwitchInputProps> = props => {
     </Grid>
   )
 }
+export default SwitchInput

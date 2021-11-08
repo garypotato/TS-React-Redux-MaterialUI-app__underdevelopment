@@ -1,7 +1,6 @@
-import { AxiosPromise } from 'axios'
 import axios from '../utils/requestDomainAPI'
 
-export const getSaleAndRent = (id: string): AxiosPromise<any[]> => {
+export const getProperties = (id: number) => {
   return axios.get(
     'https://api.domain.com.au/v1/agencies/' +
       id +
