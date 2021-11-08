@@ -11,6 +11,7 @@ import { Box } from '@mui/system'
 import BedroomParentOutlinedIcon from '@mui/icons-material/BedroomParentOutlined'
 import BathroomOutlinedIcon from '@mui/icons-material/BathroomOutlined'
 import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined'
+import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone'
 
 interface ICarouselProps {
   data: newListElement
@@ -21,13 +22,13 @@ const Carousel: FC<ICarouselProps> = props => {
 
   const settings = {
     // dots: true,
+    // autoplay: true,
+    // autoplaySpeed: 3000,
     fade: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000
+    slidesToScroll: 1
   }
 
   return (
@@ -45,7 +46,18 @@ const Carousel: FC<ICarouselProps> = props => {
                   backgroundPosition: 'center',
                   backgroundSize: 'cover',
                   position: 'relative'
-                }}>
+                }}
+              >
+                <FavoriteTwoToneIcon
+                  fontSize="large"
+                  sx={{
+                    position: 'absolute',
+                    left: '0',
+                    top: '15%',
+                    margin: '0 5px',
+                    color: 'white'
+                  }}
+                />
                 <div
                   style={{
                     position: 'absolute',
@@ -56,11 +68,18 @@ const Carousel: FC<ICarouselProps> = props => {
                   )`,
                     color: 'white',
                     width: '100%',
-                    // padding: '10px',
                     borderRadius: '0 0 6px 6px',
                     textAlign: 'center'
-                  }}>
-                  <Box sx={{ fontSize: '18px' }}>
+                  }}
+                >
+                  <Box
+                    sx={{
+                      fontSize: '18px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+                  >
                     {property.addressParts.displayAddress.split('NSW')[0]}
                   </Box>
 

@@ -39,15 +39,15 @@ export const separateRentAndSale = (data: Array<IProperty>) => {
     { cate: 'rent', icon: <VpnKeyIcon />, properties: [] },
     { cate: 'sale', icon: <StoreIcon />, properties: [] }
   ]
-  data.map(property => {
+  data.forEach(property => {
     if (property.objective === 'rent') {
-      newList.map(item => {
+      newList.forEach(item => {
         if (item.cate === 'rent') {
           item.properties.push(property)
         }
       })
     } else {
-      newList.map(item => {
+      newList.forEach(item => {
         if (item.cate === 'sale') {
           item.properties.push(property)
         }

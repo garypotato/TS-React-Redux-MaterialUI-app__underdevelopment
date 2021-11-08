@@ -10,6 +10,9 @@ import { IRootState } from './type.d'
 
 import { setSelectedBranch } from './Redux/Reducers/companyReducer/companyActions'
 
+import { Routes, Route, Link } from 'react-router-dom'
+import Properties from './views/Properties'
+
 function App() {
   const dispatch = useDispatch()
   let { branches } = useSelector((state: IRootState) => state.company)
@@ -24,7 +27,12 @@ function App() {
   return (
     <div style={{ background: '#EEEEEE' }}>
       <Header branchesList={branches} setBranch={headerSetBranch} />
-      <Home />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/properties" element={<Properties />} />
+      </Routes>
+
       <Footer />
     </div>
   )
