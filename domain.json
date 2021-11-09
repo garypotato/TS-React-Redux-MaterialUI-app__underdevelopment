@@ -1,0 +1,241 @@
+{
+    "accountType": "residential, commercialFull",
+    "profile": {
+      "profileWebsite": "sevenrealestate-26958",
+      "agencyBanner": "https://images.domain.com.au/img/Agencys/26958/banner_26958.png?date=637720878064882945",
+      "agencyWebsite": "http://www.sevenrealestate.com.au",
+      "agencyLogoStandard": "https://images.domain.com.au/img/Agencys/26958/logo_26958.png?date=637720878064882945",
+      "agencyLogoSmall": "https://images.domain.com.au/img/Agencys/26958/searchlogo_26958.png?date=637720878064882945",
+      "logoColour": "#131b4d",
+      "backgroundColour": "#131b4d",
+      "mapLatitude": "-33.7335564",
+      "mapLongitude": "151.0066578",
+      "mapCertainty": 0,
+      "agencyDescription": "Seven Real Estate is a dedicated team of industry professionals based in Sydney’s Hills District and North West. We handle all aspects of sales, rentals and project marketing. Each member of our team is dedicated to providing premium customer service and experience, with a strong emphasis on accessibility. We value our clients needs and act as trusted real estate advisors to everyone, from first home buyers to long term investors. Every customer and every property is important to us: from the smallest apartment to the largest multi-million dollar home, our team will look after your best interests. With a network of client databases locally and globally and over 25 years combined real estate experience, let us help you find your way home.",
+      "numberForSale": 5,
+      "numberForRent": 21,
+      "numberForSaleCommercial": 0,
+      "numberForRentCommercial": 0
+    },
+    "name": "Seven Real Estate",
+    "details": {
+      "streetAddress1": "28/3-9 Terminus Street",
+      "streetAddress2": "",
+      "suburb": "Castle Hill",
+      "state": "NSW",
+      "postcode": "2154",
+      "agencyWebsite": "http://www.sevenrealestate.com.au",
+      "principalName": "Michael Hu "
+    },
+    "id": 26958,
+    "agents": [
+      {
+        "agencyId": 26958,
+        "id": 1675809,
+        "firstName": "Michael",
+        "photo": "https://domain.com.au/content/files/agentadmin/images//noAgentPhoto_25x25.gif",
+        "lastName": "HU",
+        "phone": "",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1326264,
+        "firstName": "Dennis Yinyi",
+        "photo": "https://images.domain.com.au/img/26958/contact_1326264.jpeg?date=637720782841870000",
+        "lastName": "WANG",
+        "phone": "02 8628 7363",
+        "facebookUrl": "https://www.facebook.com/7SevenRE/",
+        "twitterUrl": "https://twitter.com/seven7real",
+        "profileText": "",
+        "mugShotNew": "26958\\contact_1326264.jpeg",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1752680,
+        "firstName": "Jun",
+        "photo": "https://images.domain.com.au/img/26958/contact_1752680.jpeg?date=637720706736630000",
+        "lastName": "CHEN",
+        "phone": "02 8628 7363",
+        "facebookUrl": "https://www.facebook.com/7SevenRE/",
+        "twitterUrl": "https://twitter.com/seven7real",
+        "profileText": "<p>Jun believes in listening to what people want, and genuinely enjoys the prospect of helping people maximise their wealth.</p><p>Fluent in English, Cantonese and Mandarin, Jun has lived at Hills for almost 13 years and in this time he has gained the versatility and market knowledge to appeal to a broad spectrum of vendors and a large network of motivated buyers.</p><p>His high attention to detail, hardworking attitude and exceptional sales history have afforded him a reputation as a true real estate professional dedicated to providing quality customer service.</p><p>&#32048;&#24515;&#32838;&#32893;&#23458;&#25142;&#38656;&#27714; I&#39640;&#25928;&#29151;&#37559;&#25512;&#24291; I&#40848;&#22823;&#23458;&#25142;&#36039;&#28304; I&#32048;&#31680;&#36000;&#36012;&#20219;&#24907;&#24230;</p><p>&#24713;&#23612;&#23665;&#21312;&#23560;&#26989;&#25151;&#29986;&#37559;&#21806;&#20013;&#20171;</p><p>&#33521;&#35486; I&#22283;&#35486;I&#24291;&#26481;&#35441;</p>",
+        "mugShotNew": "26958\\contact_1752680.jpeg",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1278573,
+        "firstName": "Michael",
+        "photo": "https://images.domain.com.au/img/26958/contact_1278573.jpeg?date=637720706737270000",
+        "lastName": "HU",
+        "phone": "02 8628 7363",
+        "facebookUrl": "https://www.facebook.com/7SevenRE/",
+        "twitterUrl": "https://twitter.com/seven7real",
+        "profileText": "",
+        "mugShotNew": "26958\\contact_1278573.jpeg",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1278574,
+        "firstName": "Alex Chao",
+        "photo": "https://images.domain.com.au/img/26958/contact_1278574.jpeg?date=637647038897370000",
+        "lastName": "ZHANG",
+        "phone": "02 8628 7363",
+        "facebookUrl": "https://www.facebook.com/7SevenRE/",
+        "twitterUrl": "https://twitter.com/seven7real",
+        "profileText": "",
+        "mugShotNew": "26958\\contact_1278574.jpeg",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1513477,
+        "firstName": "Essie",
+        "photo": "https://images.domain.com.au/img/26958/contact_1513477.jpeg?date=637105392358830000",
+        "lastName": "Tong",
+        "phone": "02 8628 7363",
+        "facebookUrl": "https://www.facebook.com/7SevenRE/",
+        "twitterUrl": "https://twitter.com/seven7real",
+        "profileText": "",
+        "googlePlusUrl": "",
+        "mugShotNew": "26958\\contact_1513477.jpeg",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1786351,
+        "firstName": "Essie",
+        "photo": "https://domain.com.au/content/files/agentadmin/images//noAgentPhoto_25x25.gif",
+        "lastName": "TONG",
+        "phone": "02 8628 7363",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1767837,
+        "firstName": "Gary Guowei",
+        "photo": "https://images.domain.com.au/img/26958/contact_1767837.jpeg?date=637345738350200000",
+        "lastName": "CHEN",
+        "phone": "02 8628 7363",
+        "facebookUrl": "https://www.facebook.com/7SevenRE/",
+        "twitterUrl": "https://twitter.com/seven7real",
+        "profileText": "",
+        "mugShotNew": "26958\\contact_1767837.jpeg",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1826093,
+        "firstName": "Isabel Qixin",
+        "photo": "https://images.domain.com.au/img/26958/contact_1826093.jpeg?date=637690361487370000",
+        "lastName": "ZHANG",
+        "phone": "02 8628 7363",
+        "profileText": "",
+        "mugShotNew": "26958\\contact_1826093.jpeg",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1585619,
+        "firstName": "Joseph",
+        "photo": "https://images.domain.com.au/img/26958/contact_1585619.jpeg?date=637565183244900000",
+        "lastName": "FERNANDO",
+        "phone": "02 8628 7363",
+        "facebookUrl": "https://www.facebook.com/7SevenRE/",
+        "twitterUrl": "https://twitter.com/seven7real",
+        "profileText": "",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1623179,
+        "firstName": "Maggie Yanting",
+        "photo": "https://images.domain.com.au/img/26958/contact_1623179.jpeg?date=637105392093970000",
+        "lastName": "CHEN",
+        "phone": "02 8628 7363",
+        "facebookUrl": "https://www.facebook.com/7SevenRE/",
+        "twitterUrl": "https://twitter.com/seven7real",
+        "profileText": "",
+        "mugShotNew": "26958\\contact_1623179.jpeg",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1800475,
+        "firstName": "Martin Qing",
+        "photo": "https://images.domain.com.au/img/26958/contact_1800475.jpeg?date=637528918206530000",
+        "lastName": "DEE",
+        "phone": "02 8628 7363",
+        "profileText": "",
+        "mugShotNew": "26958\\contact_1800475.jpeg",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1547172,
+        "firstName": "SEVEN",
+        "photo": "https://images.domain.com.au/img/26958/contact_1547172.png?date=637055732682030000",
+        "lastName": "Real Estate",
+        "phone": "02 8628 7363",
+        "profileText": "",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1767834,
+        "firstName": "Shannon",
+        "photo": "https://images.domain.com.au/img/26958/contact_1767834.jpeg?date=637345737273770000",
+        "lastName": "DELORIE",
+        "phone": "02 8628 7363",
+        "facebookUrl": "https://www.facebook.com/7SevenRE/",
+        "twitterUrl": "https://twitter.com/seven7real",
+        "profileText": "",
+        "mugShotNew": "26958\\contact_1767834.jpeg",
+        "contactTypeCode": 2
+      },
+      {
+        "agencyId": 26958,
+        "id": 1800474,
+        "firstName": "Tarik",
+        "photo": "https://images.domain.com.au/img/26958/contact_1800474.jpeg?date=637528918043330000",
+        "lastName": "GOKTAS",
+        "phone": "02 8628 7363",
+        "profileText": "",
+        "mugShotNew": "26958\\contact_1800474.jpeg",
+        "contactTypeCode": 2
+      }
+    ],
+    "contactDetails": {
+      "businessSale": {
+        "email": "sales@sevenrealestate.com.au",
+        "phone": "02 86287363"
+      },
+      "businessRent": {},
+      "commercialLease": {
+        "email": "sales@sevenrealestate.com.au",
+        "phone": "02 86287363"
+      },
+      "commercialSale": {
+        "email": "sales@sevenrealestate.com.au",
+        "phone": "02 86287363"
+      },
+      "emailDomains": [],
+      "general": {
+        "email": "sales@sevenrealestate.com.au",
+        "fax": "02 86287378",
+        "phone": "02 86287363",
+        "mobile": ""
+      },
+      "residentialRent": {
+        "email": "rentals@sevenrealestate.com.au",
+        "phone": "02 86287363"
+      },
+      "residentialSale": {
+        "email": "sales@sevenrealestate.com.au",
+        "phone": "02 86287363"
+      }
+    }
+  }

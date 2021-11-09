@@ -6,7 +6,7 @@ import InputFormFooter from '../components/InputForm/InputFormFooter'
 import SearchSection from '../components/SearchSection'
 import SliderInput from '../components/TextFiled/SliderInput'
 import SwitchInput from '../components/TextFiled/SwitchInput'
-import TabDisplay from '../components/TabDisplay'
+import TabDisplay from '../components/TabDisplay/TabDisplay'
 
 import SendIcon from '@mui/icons-material/Send'
 import ClearIcon from '@mui/icons-material/Clear'
@@ -26,7 +26,7 @@ const Home = () => {
   const [bathrooms, setBathrooms] = useState(2)
   const [carparks, setCarparks] = useState(1)
 
-  const { properties } = useSelector((state: IRootState) => state)
+  const { properties, branchInfo } = useSelector((state: IRootState) => state)
 
   let data = separateRentAndSale(properties)
 
@@ -76,7 +76,7 @@ const Home = () => {
         </InputForm>
       </SearchSection>
 
-      <TabDisplay data={data} />
+      <TabDisplay data={data} agents={branchInfo.agents} />
     </>
   )
 }

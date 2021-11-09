@@ -10,8 +10,8 @@ import { IRootState } from './type.d'
 
 import { setSelectedBranch } from './Redux/Reducers/companyReducer/companyActions'
 
-import { Routes, Route, Link } from 'react-router-dom'
-import Properties from './views/Properties'
+import { Routes, Route } from 'react-router-dom'
+import Property from './views/Property'
 
 function App() {
   const dispatch = useDispatch()
@@ -30,7 +30,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/properties" element={<Properties />} />
+        <Route path="/property" element={<Property />} />
       </Routes>
 
       <Footer />

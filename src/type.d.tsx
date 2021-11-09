@@ -1,9 +1,8 @@
-import { AxiosResponse } from 'axios'
-
 // * app state
 export interface IRootState {
   company: ICompany
   properties: Array<IProperty>
+  branchInfo: IMoreDetailBranch
 }
 
 export interface ICompany {
@@ -33,6 +32,69 @@ export interface IBranch {
   numberForRent?: number
   domainUrl?: string
   showTabSoldLastYear?: boolean
+}
+
+export interface IMoreDetailBranch {
+  accountType: string
+  profile: {
+    profileWebsite: string
+    agencyBanner: string
+    agencyWebsite: string
+    agencyLogoStandard: string
+    agencyLogoSmall: string
+    logoColour: string
+    backgroundColour: string
+    mapLatitude: string
+    mapLongitude: string
+    mapCertainty: number
+    agencyDescription: string
+    numberForSale: number
+    numberForRent: number
+    numberForSaleCommercial: number
+    numberForRentCommercial: number
+  }
+  name: string
+  details: {
+    streetAddress1: string
+    streetAddress2: string
+    suburb: string
+    state: string
+    postcode: string
+    agencyWebsite: string
+    principalName: string
+  }
+  id: number
+  agents: Array<IAgent>
+  contactDetails: {
+    businessSale: {
+      email: string
+      phone: string
+    }
+    businessRent: object
+    commercialLease: {
+      email: string
+      phone: string
+    }
+    commercialSale: {
+      email: string
+      phone: string
+    }
+    emailDomains: Array<any>
+    general: {
+      email: string
+      fax: string
+      phone: string
+      mobile: string
+    }
+    residentialRent: {
+      email: string
+      phone: string
+    }
+    residentialSale: {
+      email: string
+      phone: string
+    }
+  }
 }
 
 type TMedia = {
@@ -89,6 +151,20 @@ export interface IProperty {
     displayPrice: string
   }
   seoUrl: string
+}
+
+export interface IAgent {
+  agencyId: number
+  id: number
+  firstName: string
+  photo: string
+  lastName: string
+  phone: string
+  facebookUrl?: string
+  twitterUrl?: string
+  profileText?: string
+  mugShotNew?: string
+  contactTypeCode: number
 }
 
 // * for function separateRentAndSale

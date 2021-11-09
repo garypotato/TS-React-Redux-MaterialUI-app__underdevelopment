@@ -18,6 +18,7 @@ import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded'
 import { FC, useState } from 'react'
 import { IBranch } from '../type.d'
 import colorList from '../constant/colorList'
+import { setLocalStorage } from '../utils/_utils'
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right'
 
@@ -59,7 +60,14 @@ const Header: FC<IHeaderProps> = props => {
     >
       <List>
         {branchesList?.map((branch, index) => (
-          <ListItem button key={index} onClick={() => setBranch(branch.id)}>
+          <ListItem
+            button
+            key={index}
+            onClick={() => {
+              setBranch(branch.id)
+              setLocalStorage('selectedBranch', branch.id)
+            }}
+          >
             <ListItemIcon>
               <LocationOnRoundedIcon color={colorList[index]} />
             </ListItemIcon>
