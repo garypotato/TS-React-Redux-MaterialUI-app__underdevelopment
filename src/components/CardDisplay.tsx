@@ -7,7 +7,6 @@ import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
 import Avatar from '@mui/material/Avatar'
 import IconButton from '@mui/material/IconButton'
-import { red } from '@mui/material/colors'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
@@ -18,6 +17,7 @@ import BathtubRoundedIcon from '@mui/icons-material/BathtubRounded'
 import DirectionsCarFilledRoundedIcon from '@mui/icons-material/DirectionsCarFilledRounded'
 import Checkbox from '@mui/material/Checkbox'
 import Grid from '@mui/material/Grid'
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 
 interface ICardDisplayProps {
   data: IProperty
@@ -47,7 +47,7 @@ const CardDisplay: FC<ICardDisplayProps> = props => {
         }
         action={
           <IconButton aria-label="settings">
-            <MoreVertIcon />
+            <FavoriteBorderIcon />
           </IconButton>
         }
         title={property && property.addressParts.displayAddress.split(',')[0]}
