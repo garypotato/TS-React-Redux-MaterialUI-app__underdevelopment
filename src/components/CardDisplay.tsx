@@ -65,7 +65,7 @@ const CardDisplay: FC<ICardDisplayProps> = props => {
         />
       </Link>
 
-      <CardContent>
+      <CardContent sx={{ padding: '16px 0' }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
           <Button
             variant="contained"
@@ -98,7 +98,7 @@ const CardDisplay: FC<ICardDisplayProps> = props => {
             property.features.map((feature, index) => {
               return (
                 <Grid item xs={6} key={index}>
-                  <Grid container>
+                  <Grid container alignItems="center">
                     <Grid item>
                       <Checkbox defaultChecked size="small" disabled />
                     </Grid>

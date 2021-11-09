@@ -63,9 +63,13 @@ const TabDisplayPanel: FC<ITabDisplayPanelProps> = props => {
   }
 
   return (
-    <div role="tabpanel" hidden={value !== index}>
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      style={{ margin: '20px auto' }}
+    >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box>
           <Grid container spacing={2} textAlign="center">
             {temData.map((property, index) => {
               return (
