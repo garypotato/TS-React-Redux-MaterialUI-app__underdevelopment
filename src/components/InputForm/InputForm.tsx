@@ -13,17 +13,17 @@ interface IInputFormProps {
 const InputForm: FC<IInputFormProps> = props => {
   const { children, bgColorFrom, bgColorTo, filterDisplay } = props
 
-  // todo -> customise input from style
-  let inlineStyle = {}
-  let temBgColorFrom = bgColorFrom || 'rgba(255, 255, 255, 0.2)'
-  let temBgColorTo = bgColorTo || 'rgba(255, 255, 255, 0.2)'
-  let temBackgroundImage = {
-    backgroundImage: `linear-gradient(${temBgColorFrom},${temBgColorTo})`
-  }
-  Object.assign(inlineStyle, temBackgroundImage)
-
   // * monitor 'filterDisplay', if true, show 'filter' in the center
   let filterDisplayStyle = useCallback(() => {
+    // todo -> customise input from style
+    let inlineStyle = {}
+    let temBgColorFrom = bgColorFrom || 'rgba(255, 255, 255, 0.2)'
+    let temBgColorTo = bgColorTo || 'rgba(255, 255, 255, 0.2)'
+    let temBackgroundImage = {
+      backgroundImage: `linear-gradient(${temBgColorFrom},${temBgColorTo})`
+    }
+    Object.assign(inlineStyle, temBackgroundImage)
+
     if (filterDisplay) {
       return Object.assign(inlineStyle, { display: 'block', left: '50%' })
     }
@@ -32,6 +32,7 @@ const InputForm: FC<IInputFormProps> = props => {
 
   return (
     <Box
+      style={filterDisplayStyle()}
       sx={{
         position: 'absolute',
         top: '50%',
@@ -43,7 +44,6 @@ const InputForm: FC<IInputFormProps> = props => {
         display: { xs: 'none', md: 'block' },
         padding: '25px 20px 25px 20px'
       }}
-      style={filterDisplayStyle()}
     >
       <Grid container rowSpacing={3}>
         {children}

@@ -53,7 +53,7 @@ const Header: FC<IHeaderProps> = props => {
             <SearchIcon sx={{ color: 'white', display: { md: 'none' } }} />
           </IconButton>
 
-          <Button color="inherit" sx={{ color: 'white' }}>
+          <Button color="inherit" sx={{ color: '#ff8f00' }}>
             <AccountCircle />
           </Button>
         </Toolbar>
