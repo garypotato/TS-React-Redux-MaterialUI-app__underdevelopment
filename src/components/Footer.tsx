@@ -5,6 +5,7 @@ import InstagramIcon from '@mui/icons-material/Instagram'
 import TwitterIcon from '@mui/icons-material/Twitter'
 
 import { List, ListItem } from '@mui/material'
+import { memo } from 'react'
 
 const useStyles = makeStyles({
   footer: {
@@ -61,4 +62,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export default memo(Footer)

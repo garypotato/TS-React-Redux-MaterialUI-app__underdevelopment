@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { FC, memo, ReactNode } from 'react'
 import Grid from '@mui/material/Grid'
 
 interface IInputFromFooterProps {
@@ -15,4 +15,4 @@ const InputFormFooter: FC<IInputFromFooterProps> = props => {
     </Grid>
   )
 }
-export default InputFormFooter
+export default memo(InputFormFooter)

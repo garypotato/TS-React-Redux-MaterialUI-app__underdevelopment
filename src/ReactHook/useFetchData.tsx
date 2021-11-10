@@ -9,13 +9,7 @@ import {
   setSelectedBranch
 } from '../Redux/Reducers/companyReducer/companyActions'
 import { setListingProperties } from '../Redux/Reducers/listingProperties/listingPropertiesActions'
-import {
-  IAgent,
-  IBranch,
-  IMoreDetailBranch,
-  IProperty,
-  IRootState
-} from '../type.d'
+import { IBranch, IMoreDetailBranch, IProperty, IRootState } from '../type.d'
 import { getLocalStorage, setLocalStorage } from '../utils/_utils'
 
 const useFetchData = () => {
@@ -23,7 +17,6 @@ const useFetchData = () => {
   let { companyName, selectedBranch } = useSelector(
     (state: IRootState) => state.company
   )
-  let { branchInfo } = useSelector((state: IRootState) => state)
 
   // todo -> set Company branches and default branch
   useEffect(() => {
@@ -41,7 +34,7 @@ const useFetchData = () => {
         dispatch(setSelectedBranch(res[0].id))
       }
     })
-  }, [])
+  }, [companyName, dispatch])
 
   useEffect(() => {
     let selectedBranch = getLocalStorage('selectedBranch')
@@ -53,13 +46,13 @@ const useFetchData = () => {
       dispatch(setListingProperties(res))
     })
 
-    // todo -> get agents for selected branchlet result = getBranchInfo(selectedBranch)
+    // todo -> get info for selected branch
     let moreDetailBranchResult = getBranchInfo(selectedBranch)
     moreDetailBranchResult.then(resp => {
       let res = resp as any as IMoreDetailBranch
       dispatch(setDetailBranch(res))
     })
-  }, [selectedBranch])
+  }, [selectedBranch, dispatch])
 }
 
 export default useFetchData

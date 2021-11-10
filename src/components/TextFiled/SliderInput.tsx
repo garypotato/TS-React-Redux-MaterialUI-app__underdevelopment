@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid'
 import Slider from '@mui/material/Slider'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 interface ISliderInputProps {
   label: string
@@ -48,4 +48,4 @@ const SliderInput: FC<ISliderInputProps> = props => {
   )
 }
 
-export default SliderInput
+export default memo(SliderInput)

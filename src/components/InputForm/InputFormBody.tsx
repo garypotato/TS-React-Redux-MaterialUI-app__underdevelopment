@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { FC, memo, ReactNode } from 'react'
 import Grid from '@mui/material/Grid'
 
 interface IInputFromBodyProps {
@@ -17,4 +17,4 @@ const InputFormBody: FC<IInputFromBodyProps> = props => {
   )
 }
 
-export default InputFormBody
+export default memo(InputFormBody)

@@ -1,41 +1,42 @@
-import AppBar from '@mui/material/AppBar'
-import Toolbar from '@mui/material/Toolbar'
-import Button from '@mui/material/Button'
-import IconButton from '@mui/material/IconButton'
-import MenuIcon from '@mui/icons-material/Menu'
-import Typography from '@mui/material/Typography'
+import Drawer from '@mui/material/Drawer'
+import { FC, memo, useEffect, useState } from 'react'
 import Box from '@mui/material/Box'
-import Divider from '@mui/material/Divider'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
+import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded'
+import Divider from '@mui/material/Divider'
 import InboxIcon from '@mui/icons-material/MoveToInbox'
 import MailIcon from '@mui/icons-material/Mail'
-import Drawer from '@mui/material/Drawer'
-import LocationOnRoundedIcon from '@mui/icons-material/LocationOnRounded'
+import IconButton from '@mui/material/IconButton'
+import MenuIcon from '@mui/icons-material/Menu'
 
-import { FC, useState } from 'react'
-import { IBranch } from '../type.d'
-import colorList from '../constant/colorList'
-import { setLocalStorage } from '../utils/_utils'
+import colorList from '../../constant/colorList'
+import { IBranch } from '../../type.d'
+import {
+  selectedBranchIndexFunction,
+  setLocalStorage
+} from '../../utils/_utils'
 
-type Anchor = 'top' | 'left' | 'bottom' | 'right'
-
-interface IHeaderProps {
-  branchesList: Array<IBranch>
+interface IHeaderDrawerProps {
+  showBranch: IBranch[]
   setBranch: (id: number) => void
+  selectedBranch: number
 }
 
-const Header: FC<IHeaderProps> = props => {
-  const { branchesList, setBranch } = props
+const HeaderDrawer: FC<IHeaderDrawerProps> = props => {
+  const { showBranch, setBranch, selectedBranch } = props
 
-  const [state, setState] = useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false
-  })
+  // * find out the 'selected branch' index in 'branches array'
+  const [selectedBranchIndex, setSelectedBranchIndex] = useState(3)
+  useEffect(() => {
+    if (showBranch && selectedBranch) {
+      let index = selectedBranchIndexFunction(selectedBranch, showBranch)
+      setSelectedBranchIndex(index)
+    }
+    return
+  }, [showBranch, selectedBranch])
 
   const toggleDrawer =
     (anchor: Anchor, open: boolean) =>
@@ -51,6 +52,15 @@ const Header: FC<IHeaderProps> = props => {
       setState({ ...state, [anchor]: open })
     }
 
+  const [state, setState] = useState({
+    top: false,
+    left: false,
+    bottom: false,
+    right: false
+  })
+
+  type Anchor = 'top' | 'left' | 'bottom' | 'right'
+
   const list = (anchor: Anchor) => (
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
@@ -59,8 +69,9 @@ const Header: FC<IHeaderProps> = props => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {branchesList?.map((branch, index) => (
+        {showBranch?.map((branch, index) => (
           <ListItem
+            selected={index === selectedBranchIndex}
             button
             key={index}
             onClick={() => {
@@ -112,43 +123,23 @@ const Header: FC<IHeaderProps> = props => {
   )
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" color="transparent">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon
-              sx={{ color: 'white' }}
-              onClick={toggleDrawer('left', true)}
-            />
-            <Drawer
-              anchor="left"
-              open={state['left']}
-              onClose={toggleDrawer('left', false)}
-            >
-              {list('left')}
-            </Drawer>
-          </IconButton>
+    <IconButton
+      size="large"
+      edge="start"
+      aria-label="menu"
+      sx={{ mr: 2, display: { md: 'none' } }}
+    >
+      <MenuIcon sx={{ color: 'white' }} onClick={toggleDrawer('left', true)} />
 
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, color: 'white' }}
-          >
-            Seven
-          </Typography>
-
-          <Button color="inherit" sx={{ color: 'white' }}>
-            <span>LOGIN</span>
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
+      <Drawer
+        anchor="left"
+        open={state['left']}
+        onClose={toggleDrawer('left', false)}
+      >
+        {list('left')}
+      </Drawer>
+    </IconButton>
   )
 }
 
-export default Header
+export default memo(HeaderDrawer)

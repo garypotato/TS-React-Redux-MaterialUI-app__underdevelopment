@@ -1,5 +1,5 @@
 import Button, { ButtonProps } from '@mui/material/Button'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import Grid from '@mui/material/Grid'
 
 interface IButtonProps extends ButtonProps {
@@ -18,4 +18,4 @@ const ButtonIcon: FC<IButtonProps> = props => {
   )
 }
 
-export default ButtonIcon
+export default memo(ButtonIcon)

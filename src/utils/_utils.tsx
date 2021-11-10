@@ -1,8 +1,6 @@
 import StoreIcon from '@mui/icons-material/Store'
 import VpnKeyIcon from '@mui/icons-material/VpnKey'
-// ! local storage
-
-import { IProperty, newListElement } from '../type.d'
+import { IBranch, IProperty, newListElement } from '../type.d'
 
 // * set localStorage, will expired in 4 hours
 export interface localStorageData {
@@ -18,6 +16,7 @@ export const setLocalStorage = <T,>(key: string, value: T): void => {
   }
   localStorage.setItem(key, JSON.stringify(obj))
 }
+
 // * get localStorage
 export const getLocalStorage = (key: string) => {
   let val = localStorage.getItem(key)
@@ -33,7 +32,7 @@ export const getLocalStorage = (key: string) => {
   return newVal.data
 }
 
-// ! separate properties to 'rent' and 'sell'
+// * separate properties to 'rent' and 'sell'
 export const separateRentAndSale = (data: Array<IProperty>) => {
   let newList: Array<newListElement> = [
     { cate: 'rent', icon: <VpnKeyIcon />, properties: [] },
@@ -55,4 +54,17 @@ export const separateRentAndSale = (data: Array<IProperty>) => {
     }
   })
   return newList
+}
+
+// * find out the 'selected branch' index in 'branches array'
+export const selectedBranchIndexFunction = (
+  selectedBranchID: number,
+  branches: IBranch[]
+) => {
+  let selectedBranch = branches.find(branch => branch.id === selectedBranchID)
+  if (selectedBranch !== undefined) {
+    let index = branches.indexOf(selectedBranch)
+    return index
+  }
+  return 999
 }

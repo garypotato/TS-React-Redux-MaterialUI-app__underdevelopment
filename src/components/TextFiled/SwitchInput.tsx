@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import Switch from '@mui/material/Switch'
 import Grid from '@mui/material/Grid'
 
@@ -48,4 +48,4 @@ const SwitchInput: FC<ISwitchInputProps> = props => {
     </Grid>
   )
 }
-export default SwitchInput
+export default memo(SwitchInput)

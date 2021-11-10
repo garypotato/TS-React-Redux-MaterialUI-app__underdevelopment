@@ -1,7 +1,7 @@
 import TextField from '@mui/material/TextField'
 import MenuItem from '@mui/material/MenuItem'
 
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import Grid from '@mui/material/Grid'
 
 interface ISelectInputProps {
@@ -39,4 +39,4 @@ const SelectInput: FC<ISelectInputProps> = props => {
   )
 }
 
-export default SelectInput
+export default memo(SelectInput)

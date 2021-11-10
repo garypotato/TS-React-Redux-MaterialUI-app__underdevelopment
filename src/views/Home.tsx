@@ -10,30 +10,59 @@ import TabDisplay from '../components/TabDisplay/TabDisplay'
 
 import SendIcon from '@mui/icons-material/Send'
 import ClearIcon from '@mui/icons-material/Clear'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { selectInputText, suburbList } from '../constant/suburbList'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { IRootState } from '../type.d'
-import useFetchData from '../ReactHook/useFetchData'
 import { separateRentAndSale } from '../utils/_utils'
+import Header from '../components/Header/Header'
+import Footer from '../components/Footer'
+import { setSelectedBranch } from '../Redux/Reducers/companyReducer/companyActions'
 
 const Home = () => {
-  useFetchData()
+  // * get state from 'Redux' and hooks
+  const { company, properties, branchInfo } = useSelector(
+    (state: IRootState) => state
+  )
+  const { branches, selectedBranch } = company
+  let data = separateRentAndSale(properties)
+  const dispatch = useDispatch()
 
+  // * all data for filter
   const [suburb, setSuburb] = useState('')
   const [rent, setRent] = useState(true)
   const [bedrooms, setBedrooms] = useState(2)
   const [bathrooms, setBathrooms] = useState(2)
   const [carparks, setCarparks] = useState(1)
 
-  const { properties, branchInfo } = useSelector((state: IRootState) => state)
+  // * control if 'filter' display
+  const [display, setDisplay] = useState(false)
+  const handleFormDisplay = useCallback(() => {
+    setDisplay(prev => {
+      return !prev
+    })
+  }, [])
 
-  let data = separateRentAndSale(properties)
+  // * method for child component
+  const handleSelectBranch = useCallback(
+    (id: number) => {
+      dispatch(setSelectedBranch(id))
+    },
+    [dispatch]
+  )
 
   return (
     <>
+      <Header
+        showBranch={branches}
+        setBranch={handleSelectBranch}
+        selectedBranch={selectedBranch}
+        handleFormDisplay={handleFormDisplay}
+      />
+
       <SearchSection>
         <InputForm
+          filterDisplay={display}
           bgColorFrom="rgba(255, 255, 255, 0.7)"
           bgColorTo="rgba(255, 255, 255, 0.7)"
         >
@@ -77,6 +106,8 @@ const Home = () => {
       </SearchSection>
 
       <TabDisplay data={data} agents={branchInfo.agents} />
+
+      <Footer />
     </>
   )
 }

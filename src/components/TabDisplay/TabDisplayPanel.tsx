@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, memo, useEffect, useState } from 'react'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import { IAgent, IProperty } from '../../type.d'
@@ -28,7 +28,7 @@ const TabDisplayPanel: FC<ITabDisplayPanelProps> = props => {
     setTemData(prev => {
       return prev.concat(data.slice(loadMore * 6, (loadMore + 1) * 6))
     })
-  }, [loadMore])
+  }, [loadMore, data])
 
   // todo -> button shows 'no more'
   const showButtonStyle = () => {
@@ -88,4 +88,4 @@ const TabDisplayPanel: FC<ITabDisplayPanelProps> = props => {
   )
 }
 
-export default TabDisplayPanel
+export default memo(TabDisplayPanel)

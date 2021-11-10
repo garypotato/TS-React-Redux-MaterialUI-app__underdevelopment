@@ -1,7 +1,7 @@
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Box from '@mui/material/Box'
-import { FC, useState } from 'react'
+import { FC, memo, useState } from 'react'
 import { IAgent, newListElement } from '../../type.d'
 import TabDisplayPanel from './TabDisplayPanel'
 
@@ -45,4 +45,4 @@ const TabDisplay: FC<ITabDisplayProps> = props => {
   )
 }
 
-export default TabDisplay
+export default memo(TabDisplay)

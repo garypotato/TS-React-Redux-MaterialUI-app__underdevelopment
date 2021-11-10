@@ -1,11 +1,12 @@
 import Box from '@mui/material/Box'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 import defaultBackgroundImg from '../assets/images/Elephant.jpg'
 
 interface ISearchSectionProps {
   backgroundImg?: string
   height?: string
+  children: React.ReactNode
 }
 
 const SearchSection: FC<ISearchSectionProps> = props => {
@@ -40,4 +41,4 @@ const SearchSection: FC<ISearchSectionProps> = props => {
   )
 }
 
-export default SearchSection
+export default memo(SearchSection)

@@ -2,7 +2,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
 import { newListElement } from '../../type.d'
-import { FC } from 'react'
+import { FC, memo } from 'react'
 
 import './Carousel.css'
 import Divider from '@mui/material/Divider'
@@ -133,4 +133,4 @@ const Carousel: FC<ICarouselProps> = props => {
   )
 }
 
-export default Carousel
+export default memo(Carousel)

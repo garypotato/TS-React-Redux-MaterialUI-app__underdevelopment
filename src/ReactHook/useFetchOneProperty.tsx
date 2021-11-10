@@ -24,7 +24,7 @@ const useFetchOneProperty = () => {
         return setProperty(res)
       })
     }
-  }, [window.location.search])
+  }, [properties])
 
   return property
 }

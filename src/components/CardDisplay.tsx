@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react'
+import { FC, memo, useCallback } from 'react'
 import { IAgent, IProperty } from '../type.d'
 
 import Card from '@mui/material/Card'
@@ -9,7 +9,6 @@ import Avatar from '@mui/material/Avatar'
 import IconButton from '@mui/material/IconButton'
 import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
-import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { Link } from 'react-router-dom'
 import Button from '@mui/material/Button'
 import BedroomParentRoundedIcon from '@mui/icons-material/BedroomParentRounded'
@@ -18,6 +17,8 @@ import DirectionsCarFilledRoundedIcon from '@mui/icons-material/DirectionsCarFil
 import Checkbox from '@mui/material/Checkbox'
 import Grid from '@mui/material/Grid'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
+
+import { lightGreen } from '@mui/material/colors'
 
 interface ICardDisplayProps {
   data: IProperty
@@ -68,6 +69,7 @@ const CardDisplay: FC<ICardDisplayProps> = props => {
       <CardContent sx={{ padding: '16px 0' }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
           <Button
+            color="secondary"
             variant="contained"
             endIcon={<BedroomParentRoundedIcon />}
             size="small"
@@ -75,6 +77,7 @@ const CardDisplay: FC<ICardDisplayProps> = props => {
             {property && property.bedrooms}
           </Button>
           <Button
+            color="secondary"
             variant="contained"
             endIcon={<BathtubRoundedIcon />}
             size="small"
@@ -82,6 +85,7 @@ const CardDisplay: FC<ICardDisplayProps> = props => {
             {property && property.bathrooms}
           </Button>
           <Button
+            color="secondary"
             variant="contained"
             endIcon={<DirectionsCarFilledRoundedIcon />}
             size="small"
@@ -115,4 +119,4 @@ const CardDisplay: FC<ICardDisplayProps> = props => {
   )
 }
 
-export default CardDisplay
+export default memo(CardDisplay)
