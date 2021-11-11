@@ -16,7 +16,7 @@ interface IHeaderProps {
   showBranch: Array<IBranch>
   setBranch: (id: number) => void
   selectedBranch: number
-  handleFormDisplay: () => void
+  handleFormDisplay?: () => void
 }
 
 const Header: FC<IHeaderProps> = props => {
@@ -57,7 +57,11 @@ const Header: FC<IHeaderProps> = props => {
             edge="end"
             color="inherit"
             onClick={() => {
-              handleFormDisplay()
+              if (handleFormDisplay !== undefined) {
+                handleFormDisplay()
+              } else {
+                return
+              }
             }}
           >
             <SearchIcon sx={{ color: 'white', display: { md: 'none' } }} />

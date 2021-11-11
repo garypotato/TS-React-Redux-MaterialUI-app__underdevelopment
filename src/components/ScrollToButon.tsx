@@ -1,6 +1,6 @@
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp'
 import Fab from '@mui/material/Fab'
-import { FC, memo, useCallback, useEffect } from 'react'
+import { FC, memo, useCallback } from 'react'
 import { scrollToTop } from '../utils/_utils'
 
 interface IScrollToButtonProps {

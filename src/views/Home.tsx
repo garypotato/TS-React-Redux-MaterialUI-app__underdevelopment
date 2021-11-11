@@ -10,11 +10,15 @@ import TabDisplay from '../components/TabDisplay/TabDisplay'
 
 import SendIcon from '@mui/icons-material/Send'
 import ClearIcon from '@mui/icons-material/Clear'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { selectInputText, suburbList } from '../constant/suburbList'
 import { useDispatch, useSelector } from 'react-redux'
 import { IRootState } from '../type.d'
-import { separateRentAndSale, setLocalStorage } from '../utils/_utils'
+import {
+  scrollToTop,
+  separateRentAndSale,
+  setLocalStorage
+} from '../utils/_utils'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
 import { setSelectedBranch } from '../Redux/Reducers/companyReducer/companyActions'
@@ -37,16 +41,22 @@ const Home = () => {
   const [bathrooms, setBathrooms] = useState(2)
   const [carparks, setCarparks] = useState(1)
 
+  // * scrollToTopButton display or not
+  let showScrollTopButton = useMonitorScrollTop()
+
   // * control if 'filter' display
   const [display, setDisplay] = useState(false)
   const handleFormDisplay = useCallback(() => {
-    setDisplay(prev => {
-      return !prev
-    })
-  }, [])
+    if (!showScrollTopButton) {
+      setDisplay(prev => {
+        return !prev
+      })
+    } else {
+      scrollToTop()
 
-  // * scrollToTopButton display or not
-  let showScrollTopButton = useMonitorScrollTop()
+      setDisplay(true)
+    }
+  }, [showScrollTopButton])
 
   // * method for child component
   const handleSelectBranch = useCallback(
