@@ -24,6 +24,7 @@ import Footer from '../components/Footer'
 import { setSelectedBranch } from '../Redux/Reducers/companyReducer/companyActions'
 import ScrollToButton from '../components/ScrollToButon'
 import useMonitorScrollTop from '../ReactHook/useMonitorScrollTop'
+import TitleText from '../components/TitleText'
 
 const Home = () => {
   // * get state from 'Redux' and hooks
@@ -44,7 +45,7 @@ const Home = () => {
   // * scrollToTopButton display or not
   let showScrollTopButton = useMonitorScrollTop()
 
-  // * control if 'filter' display
+  // * control if 'filter' display and 'title text'
   const [display, setDisplay] = useState(false)
   const handleFormDisplay = useCallback(() => {
     if (!showScrollTopButton) {
@@ -77,6 +78,10 @@ const Home = () => {
       />
 
       <SearchSection>
+        <TitleText fontColor="white" show={display}>
+          The best way to find your home
+        </TitleText>
+
         <InputForm
           filterDisplay={display}
           bgColorFrom="rgba(255, 255, 255, 0.7)"
