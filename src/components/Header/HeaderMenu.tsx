@@ -4,13 +4,19 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import { FC, memo, useState } from 'react'
 import { IBranch } from '../../type.d'
+import useFindBranchIndex from '../../ReactHook/useFindBranchIndex'
 
 interface IHeaderMenuProp {
   showBranch: Array<IBranch>
+  setBranch: (id: number) => void
+  selectedBranch: number
 }
 
 const HeaderMenu: FC<IHeaderMenuProp> = props => {
-  const { showBranch } = props
+  const { showBranch, setBranch, selectedBranch } = props
+
+  // todo -> find out the selected branch index
+  let selectedBranchIndex = useFindBranchIndex(showBranch, selectedBranch)
 
   // * menu
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -64,7 +70,19 @@ const HeaderMenu: FC<IHeaderMenuProp> = props => {
         {showBranch &&
           showBranch.map((branch, index) => {
             return (
-              <MenuItem key={index} onClick={handleClose}>
+              <MenuItem
+                key={index}
+                onClick={() => {
+                  handleClose()
+                  setBranch(branch.id)
+                }}
+                selected={index === selectedBranchIndex}
+                sx={{
+                  '&.Mui-selected': {
+                    backgroundColor: `rgba(25, 118, 210, 0.2)`
+                  }
+                }}
+              >
                 {branch.suburb}
               </MenuItem>
             )

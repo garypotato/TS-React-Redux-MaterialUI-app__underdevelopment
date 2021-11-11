@@ -10,14 +10,16 @@ import TabDisplay from '../components/TabDisplay/TabDisplay'
 
 import SendIcon from '@mui/icons-material/Send'
 import ClearIcon from '@mui/icons-material/Clear'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { selectInputText, suburbList } from '../constant/suburbList'
 import { useDispatch, useSelector } from 'react-redux'
 import { IRootState } from '../type.d'
-import { separateRentAndSale } from '../utils/_utils'
+import { separateRentAndSale, setLocalStorage } from '../utils/_utils'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
 import { setSelectedBranch } from '../Redux/Reducers/companyReducer/companyActions'
+import ScrollToButton from '../components/ScrollToButon'
+import useMonitorScrollTop from '../ReactHook/useMonitorScrollTop'
 
 const Home = () => {
   // * get state from 'Redux' and hooks
@@ -43,10 +45,14 @@ const Home = () => {
     })
   }, [])
 
+  // * scrollToTopButton display or not
+  let showScrollTopButton = useMonitorScrollTop()
+
   // * method for child component
   const handleSelectBranch = useCallback(
     (id: number) => {
       dispatch(setSelectedBranch(id))
+      setLocalStorage('selectedBranch', id)
     },
     [dispatch]
   )
@@ -105,9 +111,11 @@ const Home = () => {
         </InputForm>
       </SearchSection>
 
-      <TabDisplay data={data} agents={branchInfo.agents} />
+      <TabDisplay data={data} agents={branchInfo.agents} id="tabDisplay" />
 
       <Footer />
+
+      <ScrollToButton show={showScrollTopButton} />
     </>
   )
 }

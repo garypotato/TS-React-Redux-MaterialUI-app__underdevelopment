@@ -1,4 +1,3 @@
-import Footer from './components/Footer'
 import Home from './views/Home'
 import { Routes, Route } from 'react-router-dom'
 import Property from './views/Property'
@@ -8,13 +7,11 @@ function App() {
   useFetchData()
 
   return (
-    <div style={{ background: '#EEEEEE' }}>
+    <div style={{ background: '#EEEEEE', position: 'relative' }}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/property" element={<Property />} />
       </Routes>
-
-      <Footer />
     </div>
   )
 }

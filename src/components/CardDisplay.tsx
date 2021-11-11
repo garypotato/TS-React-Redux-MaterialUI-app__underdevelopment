@@ -11,14 +11,14 @@ import Box from '@mui/material/Box'
 import Divider from '@mui/material/Divider'
 import { Link } from 'react-router-dom'
 import Button from '@mui/material/Button'
-import BedroomParentRoundedIcon from '@mui/icons-material/BedroomParentRounded'
-import BathtubRoundedIcon from '@mui/icons-material/BathtubRounded'
-import DirectionsCarFilledRoundedIcon from '@mui/icons-material/DirectionsCarFilledRounded'
-import Checkbox from '@mui/material/Checkbox'
 import Grid from '@mui/material/Grid'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 
-import { lightGreen } from '@mui/material/colors'
+import BedroomParentOutlinedIcon from '@mui/icons-material/BedroomParentOutlined'
+import BathroomOutlinedIcon from '@mui/icons-material/BathroomOutlined'
+import DirectionsCarOutlinedIcon from '@mui/icons-material/DirectionsCarOutlined'
+import CheckBoxRoundedIcon from '@mui/icons-material/CheckBoxRounded'
+import Typography from '@mui/material/Typography'
 
 interface ICardDisplayProps {
   data: IProperty
@@ -66,31 +66,46 @@ const CardDisplay: FC<ICardDisplayProps> = props => {
         />
       </Link>
 
-      <CardContent sx={{ padding: '16px 0' }}>
+      <CardContent sx={{ padding: '16px 10px' }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-evenly' }}>
           <Button
-            color="secondary"
+            disabled
             variant="contained"
-            endIcon={<BedroomParentRoundedIcon />}
+            endIcon={<BedroomParentOutlinedIcon color="primary" />}
             size="small"
           >
-            {property && property.bedrooms}
+            <Typography
+              sx={{ fontSize: 14, color: 'primary.main' }}
+              component="p"
+            >
+              {property && property.bedrooms}
+            </Typography>
           </Button>
           <Button
-            color="secondary"
+            disabled
             variant="contained"
-            endIcon={<BathtubRoundedIcon />}
+            endIcon={<BathroomOutlinedIcon color="primary" />}
             size="small"
           >
-            {property && property.bathrooms}
+            <Typography
+              sx={{ fontSize: 14, color: 'primary.main' }}
+              component="p"
+            >
+              {property && property.bathrooms}
+            </Typography>
           </Button>
           <Button
-            color="secondary"
+            disabled
             variant="contained"
-            endIcon={<DirectionsCarFilledRoundedIcon />}
+            endIcon={<DirectionsCarOutlinedIcon color="primary" />}
             size="small"
           >
-            {property && property.carspaces}
+            <Typography
+              sx={{ fontSize: 14, color: 'primary.main' }}
+              component="p"
+            >
+              {property && property.carspaces}
+            </Typography>
           </Button>
         </Box>
 
@@ -104,7 +119,9 @@ const CardDisplay: FC<ICardDisplayProps> = props => {
                 <Grid item xs={6} key={index}>
                   <Grid container alignItems="center">
                     <Grid item>
-                      <Checkbox defaultChecked size="small" disabled />
+                      <Grid container alignItems="center">
+                        <CheckBoxRoundedIcon color="primary" fontSize="small" />
+                      </Grid>
                     </Grid>
                     <Grid item>
                       <p style={{ fontSize: '11px' }}>{feature}</p>

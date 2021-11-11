@@ -1,5 +1,5 @@
 import Drawer from '@mui/material/Drawer'
-import { FC, memo, useEffect, useState } from 'react'
+import { FC, memo, useState } from 'react'
 import Box from '@mui/material/Box'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
@@ -14,10 +14,8 @@ import MenuIcon from '@mui/icons-material/Menu'
 
 import colorList from '../../constant/colorList'
 import { IBranch } from '../../type.d'
-import {
-  selectedBranchIndexFunction,
-  setLocalStorage
-} from '../../utils/_utils'
+import { setLocalStorage } from '../../utils/_utils'
+import useFindBranchIndex from '../../ReactHook/useFindBranchIndex'
 
 interface IHeaderDrawerProps {
   showBranch: IBranch[]
@@ -28,15 +26,8 @@ interface IHeaderDrawerProps {
 const HeaderDrawer: FC<IHeaderDrawerProps> = props => {
   const { showBranch, setBranch, selectedBranch } = props
 
-  // * find out the 'selected branch' index in 'branches array'
-  const [selectedBranchIndex, setSelectedBranchIndex] = useState(3)
-  useEffect(() => {
-    if (showBranch && selectedBranch) {
-      let index = selectedBranchIndexFunction(selectedBranch, showBranch)
-      setSelectedBranchIndex(index)
-    }
-    return
-  }, [showBranch, selectedBranch])
+  // todo -> find out the selected branch index
+  let selectedBranchIndex = useFindBranchIndex(showBranch, selectedBranch)
 
   const toggleDrawer =
     (anchor: Anchor, open: boolean) =>

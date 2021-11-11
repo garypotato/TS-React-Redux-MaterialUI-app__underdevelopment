@@ -8,6 +8,7 @@ import TabDisplayPanel from './TabDisplayPanel'
 interface ITabDisplayProps {
   data: Array<newListElement>
   agents: Array<IAgent>
+  id?: string
 }
 
 const TabDisplay: FC<ITabDisplayProps> = props => {
@@ -18,10 +19,10 @@ const TabDisplay: FC<ITabDisplayProps> = props => {
   }
 
   // todo -> receive prop and create a new 'rent list' and 'sale list'
-  const { data, agents } = props
+  const { data, agents, ...restProps } = props
 
   return (
-    <Box sx={{ width: '85%', margin: '30px auto' }}>
+    <Box sx={{ width: '85%', margin: '30px auto' }} {...restProps}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange}>
           {data.map((tab, index) => {

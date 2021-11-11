@@ -25,7 +25,7 @@ const InputForm: FC<IInputFormProps> = props => {
     Object.assign(inlineStyle, temBackgroundImage)
 
     if (filterDisplay) {
-      return Object.assign(inlineStyle, { display: 'block', left: '50%' })
+      return Object.assign(inlineStyle, { display: 'block' })
     }
     return inlineStyle
   }, [filterDisplay])
@@ -36,7 +36,7 @@ const InputForm: FC<IInputFormProps> = props => {
       sx={{
         position: 'absolute',
         top: '50%',
-        left: '80%',
+        left: { xs: '50%', md: '80%' },
         transform: 'translate(-50%, -50%)',
         width: '250px',
         borderRadius: '5px',

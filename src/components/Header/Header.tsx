@@ -24,7 +24,13 @@ const Header: FC<IHeaderProps> = props => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" color="transparent">
+      <AppBar
+        position="fixed"
+        sx={{
+          backgroundColor: 'transparent',
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8))`
+        }}
+      >
         <Toolbar>
           <HeaderDrawer
             showBranch={showBranch}
@@ -40,7 +46,11 @@ const Header: FC<IHeaderProps> = props => {
             Seven
           </Typography>
 
-          <HeaderMenu showBranch={showBranch} />
+          <HeaderMenu
+            showBranch={showBranch}
+            setBranch={setBranch}
+            selectedBranch={selectedBranch}
+          />
 
           <IconButton
             size="large"
