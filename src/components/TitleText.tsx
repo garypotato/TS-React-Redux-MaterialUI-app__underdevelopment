@@ -15,15 +15,14 @@ const TitleText: FC<ITitleTextProps> = props => {
   let clientWidthSmallMedium = useMonitorClientWidth()
 
   const handleShow = useCallback(() => {
-    let style = {}
     if (clientWidthSmallMedium && !show) {
-      return (style = { display: 'block' })
+      return { display: 'block' }
     } else if (clientWidthSmallMedium && show) {
-      return (style = { display: 'none' })
+      return { display: 'none' }
     } else if (!clientWidthSmallMedium) {
-      return (style = { display: 'block' })
+      return { display: 'block' }
     }
-  }, [show])
+  }, [show, clientWidthSmallMedium])
 
   return (
     <Typography

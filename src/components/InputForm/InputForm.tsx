@@ -28,7 +28,7 @@ const InputForm: FC<IInputFormProps> = props => {
       return Object.assign(inlineStyle, { display: 'block' })
     }
     return inlineStyle
-  }, [filterDisplay])
+  }, [filterDisplay, bgColorTo, bgColorFrom])
 
   return (
     <Box
