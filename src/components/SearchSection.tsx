@@ -1,12 +1,10 @@
 import Box from '@mui/material/Box'
 import { FC, memo } from 'react'
 
-import defaultBackgroundImg from '../assets/images/Elephant.jpg'
-
 interface ISearchSectionProps {
   backgroundImg?: string
   height?: string
-  children: React.ReactNode
+  children?: React.ReactNode
 }
 
 const SearchSection: FC<ISearchSectionProps> = props => {
@@ -31,8 +29,7 @@ const SearchSection: FC<ISearchSectionProps> = props => {
         backgroundSize: 'cover',
         height: '100vh',
         position: 'relative',
-        borderRadius: '0 0 5px 5px',
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5),rgba(255,255,255,0.5)), url(${defaultBackgroundImg})`
+        borderRadius: '0 0 5px 5px'
       }}
       style={inlineStyles}
     >

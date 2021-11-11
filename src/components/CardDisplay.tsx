@@ -30,7 +30,7 @@ const CardDisplay: FC<ICardDisplayProps> = props => {
 
   const getAgentAvatar = useCallback(
     (id: number) => {
-      let agent = agents.find(agent => agent.id === id)
+      let agent = agents && agents.find(agent => agent.id === id)
       return agent?.photo
     },
     [agents]

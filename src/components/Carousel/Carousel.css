@@ -30,7 +30,7 @@
 
     opacity: 1;
     border-radius: 2px;
-    background-color: black;
+    background-color: white;
 }
 
 .slick-dots li.slick-active button:before {

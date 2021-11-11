@@ -1,6 +1,6 @@
 import Home from './views/Home'
-import { Routes, Route } from 'react-router-dom'
 import Property from './views/Property'
+import { Routes, Route } from 'react-router-dom'
 import useFetchData from './ReactHook/useFetchData'
 
 function App() {

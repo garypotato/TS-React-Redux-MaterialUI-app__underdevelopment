@@ -2242,6 +2242,11 @@
   dependencies:
     "source-map" "^0.6.1"
 
+"@types/urijs@^1.19.17":
+  "integrity" "sha512-ShIlp+8iNGo/yVVfYFoNRqUiaE9wMCzsSl85qTg2/C5l56BTJokU7QeMgVBQ9xhcyhWQP0zGXPBZPPvEG/sRmQ=="
+  "resolved" "https://registry.npmjs.org/@types/urijs/-/urijs-1.19.17.tgz"
+  "version" "1.19.17"
+
 "@types/webpack-sources@*":
   "integrity" "sha512-LXn/oYIpBeucgP1EIJbKQ2/4ZmpvRl+dlrFdX7+94SKRUV3Evy3FsfMZY318vGhkWUS5MPhtOM3w1/hCOAOXcg=="
   "resolved" "https://registry.npmjs.org/@types/webpack-sources/-/webpack-sources-2.1.0.tgz"
@@ -9981,7 +9986,7 @@
   "resolved" "https://registry.npmjs.org/qs/-/qs-6.7.0.tgz"
   "version" "6.7.0"
 
-"query-string@*", "query-string@^4.1.0", "query-string@^4.3.4":
+"query-string@*", "query-string@^4.1.0":
   "integrity" "sha1-u7aTucqRXCMlFbIosaArYJBD2+s="
   "resolved" "https://registry.npmjs.org/query-string/-/query-string-4.3.4.tgz"
   "version" "4.3.4"
@@ -12164,6 +12169,11 @@
   "version" "4.4.1"
   dependencies:
     "punycode" "^2.1.0"
+
+"urijs@^1.19.7":
+  "integrity" "sha512-Id+IKjdU0Hx+7Zx717jwLPsPeUqz7rAtuVBRLLs+qn+J2nf9NGITWVCxcijgYxBqe83C7sqsQPs6H1pyz3x9gA=="
+  "resolved" "https://registry.npmjs.org/urijs/-/urijs-1.19.7.tgz"
+  "version" "1.19.7"
 
 "urix@^0.1.0":
   "integrity" "sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI="

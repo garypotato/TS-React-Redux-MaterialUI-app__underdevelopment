@@ -97,7 +97,7 @@ export interface IMoreDetailBranch {
   }
 }
 
-type TMedia = {
+export type TMedia = {
   category: string
   type: string
   url: string

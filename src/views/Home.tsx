@@ -22,9 +22,10 @@ import {
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer'
 import { setSelectedBranch } from '../Redux/Reducers/companyReducer/companyActions'
-import ScrollToButton from '../components/ScrollToButon'
+import ScrollToButton from '../components/ScrollToButton'
 import useMonitorScrollTop from '../ReactHook/useMonitorScrollTop'
 import TitleText from '../components/TitleText'
+import backgroundImg from '../assets/images/Elephant.jpg'
 
 const Home = () => {
   // * get state from 'Redux' and hooks
@@ -77,7 +78,7 @@ const Home = () => {
         handleFormDisplay={handleFormDisplay}
       />
 
-      <SearchSection>
+      <SearchSection backgroundImg={backgroundImg}>
         <TitleText fontColor="white" show={display}>
           The best way to find your home
         </TitleText>
