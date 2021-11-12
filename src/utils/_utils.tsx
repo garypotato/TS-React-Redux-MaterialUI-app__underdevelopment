@@ -1,6 +1,11 @@
 import StoreIcon from '@mui/icons-material/Store'
 import VpnKeyIcon from '@mui/icons-material/VpnKey'
-import { IBranch, IProperty, newListElement } from '../type.d'
+import {
+  IBranch,
+  IMoreDetailBranch,
+  IProperty,
+  newListElement
+} from '../type.d'
 
 // * set localStorage, will expired in 4 hours
 export interface localStorageData {

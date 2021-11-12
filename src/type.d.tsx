@@ -173,3 +173,10 @@ export type newListElement = {
   icon: React.ReactNode
   properties: Array<IProperty>
 }
+
+// * type for 'property page' property description
+export interface ITemPropertyElement {
+  description: string
+  features: string[]
+  disclaimer: string
+}
