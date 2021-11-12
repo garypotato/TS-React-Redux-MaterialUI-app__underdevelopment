@@ -13,6 +13,7 @@ import BedroomParentRoundedIcon from '@mui/icons-material/BedroomParentRounded'
 import BathroomRoundedIcon from '@mui/icons-material/BathroomRounded'
 import LocalParkingRoundedIcon from '@mui/icons-material/LocalParkingRounded'
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked'
+import ScrollToButton from '../components/ScrollToButton'
 
 const Property = () => {
   const { company, properties, branchInfo } = useSelector(
@@ -86,21 +87,21 @@ const Property = () => {
         <Divider textAlign="left" variant="middle">
           ADDRESS
         </Divider>
-        <Typography sx={{ px: '10vw', py: '20px' }}>
+        <Typography sx={{ px: '10vw', py: '30px' }}>
           {property?.addressParts?.displayAddress}
         </Typography>
 
         <Divider textAlign="left" variant="middle">
           DESCRIPTION
         </Divider>
-        <Typography sx={{ px: '10vw', py: '20px' }}>
+        <Typography sx={{ px: '10vw', py: '30px' }}>
           {property?.description?.split('Featur')[0]}
         </Typography>
 
         <Divider textAlign="left" variant="middle">
           FEATURES
         </Divider>
-        <Stack sx={{ px: '10vw', py: '10px' }} spacing={1}>
+        <Stack sx={{ px: '10vw', py: '30px' }} spacing={1}>
           {property?.description
             ?.split('Featur')[1]
             .split('CONTACT')[0]
@@ -119,14 +120,14 @@ const Property = () => {
         <Divider textAlign="left" variant="middle">
           DISCLAIMER
         </Divider>
-        <Typography sx={{ px: '10vw', py: '20px' }}>
+        <Typography sx={{ px: '10vw', py: '30px' }}>
           {property?.description?.split('Disclaimer:')[1]}
         </Typography>
 
         <Divider textAlign="left" variant="middle">
           AGENT
         </Divider>
-        <Typography sx={{ px: '10vw', py: '20px' }}>Agent</Typography>
+        <Typography sx={{ px: '10vw', py: '30px' }}>Agent</Typography>
       </Box>
 
       <Footer />
