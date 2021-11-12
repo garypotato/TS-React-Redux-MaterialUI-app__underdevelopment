@@ -57,7 +57,7 @@ const CardDisplay: FC<ICardDisplayProps> = props => {
         }
       />
 
-      <Link to={`/property?${property.id}`}>
+      <Link to={`/property?id=${property.id}`}>
         <CardMedia
           component="img"
           height="194"

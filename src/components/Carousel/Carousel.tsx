@@ -46,9 +46,7 @@ const Carousel: FC<ICarouselProps> = props => {
                 <Box
                   sx={{
                     height: { xs: '50vh', md: '80vh' },
-                    // width: '100%',
                     backgroundImage: `url(${image.url})`,
-                    borderRadius: '6px',
                     backgroundPosition: 'center',
                     backgroundSize: 'cover',
                     position: 'relative'
