@@ -78,7 +78,17 @@ const Header: FC<IHeaderProps> = props => {
           )}
 
           <Button color="inherit" sx={{ color: '#ff8f00' }}>
-            <AccountCircle />
+            <Link
+              to="/login"
+              style={{
+                textDecoration: 'none',
+                color: 'inherit',
+                display: 'flex',
+                alignItems: 'center'
+              }}
+            >
+              <AccountCircle />
+            </Link>
           </Button>
         </Toolbar>
       </AppBar>
