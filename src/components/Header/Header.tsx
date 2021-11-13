@@ -7,20 +7,27 @@ import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
 import SearchIcon from '@mui/icons-material/Search'
 import AccountCircle from '@mui/icons-material/AccountCircle'
+import URI from 'urijs'
 
-import { FC, memo } from 'react'
+import { FC, memo, useEffect, useState } from 'react'
 import { IBranch } from '../../type.d'
 import HeaderMenu from './HeaderMenu'
 
 interface IHeaderProps {
-  showBranch: Array<IBranch>
-  setBranch: (id: number) => void
-  selectedBranch: number
+  showBranch?: Array<IBranch>
+  setBranch?: (id: number) => void
+  selectedBranch?: number
   handleFormDisplay?: () => void
 }
 
 const Header: FC<IHeaderProps> = props => {
   const { showBranch, setBranch, selectedBranch, handleFormDisplay } = props
+
+  const [url, setUrl] = useState('')
+  useEffect(() => {
+    let queries = URI.parseQuery(window.location.search)
+    setUrl(Object.keys(queries)[0])
+  }, [])
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -52,20 +59,22 @@ const Header: FC<IHeaderProps> = props => {
             selectedBranch={selectedBranch}
           />
 
-          <IconButton
-            size="large"
-            edge="end"
-            color="inherit"
-            onClick={() => {
-              if (handleFormDisplay !== undefined) {
-                handleFormDisplay()
-              } else {
-                return
-              }
-            }}
-          >
-            <SearchIcon sx={{ color: 'white', display: { md: 'none' } }} />
-          </IconButton>
+          {!url && (
+            <IconButton
+              size="large"
+              edge="end"
+              color="inherit"
+              onClick={() => {
+                if (handleFormDisplay !== undefined) {
+                  handleFormDisplay()
+                } else {
+                  return
+                }
+              }}
+            >
+              <SearchIcon sx={{ color: 'white', display: { md: 'none' } }} />
+            </IconButton>
+          )}
 
           <Button color="inherit" sx={{ color: '#ff8f00' }}>
             <AccountCircle />

@@ -7,9 +7,9 @@ import { IBranch } from '../../type.d'
 import useFindBranchIndex from '../../ReactHook/useFindBranchIndex'
 
 interface IHeaderMenuProp {
-  showBranch: Array<IBranch>
-  setBranch: (id: number) => void
-  selectedBranch: number
+  showBranch?: Array<IBranch>
+  setBranch?: (id: number) => void
+  selectedBranch?: number
 }
 
 const HeaderMenu: FC<IHeaderMenuProp> = props => {
@@ -74,7 +74,7 @@ const HeaderMenu: FC<IHeaderMenuProp> = props => {
                 key={index}
                 onClick={() => {
                   handleClose()
-                  setBranch(branch.id)
+                  setBranch && setBranch(branch.id)
                 }}
                 selected={index === selectedBranchIndex}
                 sx={{

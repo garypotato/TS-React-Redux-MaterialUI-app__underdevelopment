@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react'
 import { IBranch } from '../type.d'
 import { selectedBranchIndexFunction } from '../utils/_utils'
 
-const useFindBranchIndex = (showBranch: IBranch[], selectedBranch: number) => {
+const useFindBranchIndex = (
+  showBranch: IBranch[] | undefined,
+  selectedBranch: number | undefined
+) => {
   const [selectedBranchIndex, setSelectedBranchIndex] = useState(3)
   useEffect(() => {
     if (showBranch && selectedBranch) {

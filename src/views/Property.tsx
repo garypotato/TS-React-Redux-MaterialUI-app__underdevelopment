@@ -1,9 +1,7 @@
 import Header from '../components/Header/Header'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { IAgent, IProperty, IRootState, ITemPropertyElement } from '../type.d'
-import { useCallback, useEffect, useState } from 'react'
-import { setSelectedBranch } from '../Redux/Reducers/companyReducer/companyActions'
-import { setLocalStorage } from '../utils/_utils'
+import { useEffect, useState } from 'react'
 import Footer from '../components/Footer'
 import URI from 'urijs'
 import Carousel from '../components/Carousel/Carousel'
@@ -15,21 +13,7 @@ import LocalParkingRoundedIcon from '@mui/icons-material/LocalParkingRounded'
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked'
 
 const Property = () => {
-  const { company, properties, branchInfo } = useSelector(
-    (state: IRootState) => state
-  )
-  const { branches, selectedBranch } = company
-
-  const dispatch = useDispatch()
-
-  // * method for child component
-  const handleSelectBranch = useCallback(
-    (id: number) => {
-      dispatch(setSelectedBranch(id))
-      setLocalStorage('selectedBranch', id)
-    },
-    [dispatch]
-  )
+  const { properties, branchInfo } = useSelector((state: IRootState) => state)
 
   // * get property
   const [property, setProperty] = useState({} as IProperty)
@@ -90,11 +74,7 @@ const Property = () => {
 
   return (
     <>
-      <Header
-        showBranch={branches}
-        setBranch={handleSelectBranch}
-        selectedBranch={selectedBranch}
-      />
+      <Header />
 
       <Box sx={{ py: { xs: '56px', sm: '65px' }, minHeight: '100vh' }}>
         <Carousel data={property?.media} />

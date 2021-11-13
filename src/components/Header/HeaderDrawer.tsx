@@ -18,9 +18,9 @@ import { setLocalStorage } from '../../utils/_utils'
 import useFindBranchIndex from '../../ReactHook/useFindBranchIndex'
 
 interface IHeaderDrawerProps {
-  showBranch: IBranch[]
-  setBranch: (id: number) => void
-  selectedBranch: number
+  showBranch?: IBranch[]
+  setBranch?: (id: number) => void
+  selectedBranch?: number
 }
 
 const HeaderDrawer: FC<IHeaderDrawerProps> = props => {
@@ -66,7 +66,7 @@ const HeaderDrawer: FC<IHeaderDrawerProps> = props => {
             button
             key={index}
             onClick={() => {
-              setBranch(branch.id)
+              setBranch && setBranch(branch.id)
               setLocalStorage('selectedBranch', branch.id)
             }}
           >
@@ -77,7 +77,9 @@ const HeaderDrawer: FC<IHeaderDrawerProps> = props => {
           </ListItem>
         ))}
       </List>
-      <Divider />
+
+      {showBranch && setBranch && selectedBranch && <Divider />}
+
       <List>
         {['Buy', 'Rent'].map((text, index) => (
           <ListItem button key={text}>
