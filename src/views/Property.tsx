@@ -11,9 +11,14 @@ import BedroomParentRoundedIcon from '@mui/icons-material/BedroomParentRounded'
 import BathroomRoundedIcon from '@mui/icons-material/BathroomRounded'
 import LocalParkingRoundedIcon from '@mui/icons-material/LocalParkingRounded'
 import RadioButtonCheckedIcon from '@mui/icons-material/RadioButtonChecked'
+import useMonitorScrollTop from '../ReactHook/useMonitorScrollTop'
+import ScrollToButton from '../components/ScrollToButton'
 
 const Property = () => {
   const { properties, branchInfo } = useSelector((state: IRootState) => state)
+
+  // * scrollToTopButton display or not
+  let showScrollTopButton = useMonitorScrollTop()
 
   // * get property
   const [property, setProperty] = useState({} as IProperty)
@@ -178,6 +183,8 @@ const Property = () => {
       </Box>
 
       <Footer />
+
+      <ScrollToButton show={showScrollTopButton} />
     </>
   )
 }
