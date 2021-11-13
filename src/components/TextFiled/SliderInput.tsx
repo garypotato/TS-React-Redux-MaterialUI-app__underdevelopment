@@ -39,7 +39,7 @@ const SliderInput: FC<ISliderInputProps> = props => {
             step={1}
             max={6}
             marks={marks}
-            defaultValue={value}
+            value={value}
             onChange={(event, value) => setValue(value as number)}
           />
         </Grid>

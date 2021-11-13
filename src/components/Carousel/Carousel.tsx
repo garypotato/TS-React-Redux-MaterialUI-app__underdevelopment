@@ -5,7 +5,7 @@ import { TMedia } from '../../type.d'
 import { FC, memo, useCallback } from 'react'
 
 import './Carousel.css'
-import { Box } from '@mui/system'
+import { Box } from '@mui/material'
 import useMonitorClientWidth from '../../ReactHook/useMonitorClientWidth'
 
 interface ICarouselProps {

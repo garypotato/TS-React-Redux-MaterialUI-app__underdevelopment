@@ -26,6 +26,7 @@ import ScrollToButton from '../components/ScrollToButton'
 import useMonitorScrollTop from '../ReactHook/useMonitorScrollTop'
 import TitleText from '../components/TitleText'
 import backgroundImg from '../assets/images/Elephant.jpg'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   // * get state from 'Redux' and hooks
@@ -41,7 +42,7 @@ const Home = () => {
   const [rent, setRent] = useState(true)
   const [bedrooms, setBedrooms] = useState(2)
   const [bathrooms, setBathrooms] = useState(2)
-  const [carparks, setCarparks] = useState(1)
+  const [carspaces, setCarspaces] = useState(1)
 
   // * scrollToTopButton display or not
   let showScrollTopButton = useMonitorScrollTop()
@@ -114,15 +115,20 @@ const Home = () => {
               setValue={value => setBathrooms(value)}
             />
             <SliderInput
-              value={carparks}
+              value={carspaces}
               label="Car Park"
-              setValue={value => setCarparks(value)}
+              setValue={value => setCarspaces(value)}
             />
           </InputFormBody>
 
           <InputFormFooter>
             <ButtonIcon icon={<ClearIcon />} text="Clear" variant="outlined" />
-            <ButtonIcon icon={<SendIcon />} text="Send" />
+            <Link
+              to={`/searchproperty?suburb=${suburb}&rent=${rent}&bedrooms=${bedrooms}&bathrooms=${bathrooms}&carspaces=${carspaces}`}
+              style={{ textDecoration: 'none' }}
+            >
+              <ButtonIcon icon={<SendIcon />} text="Send" />
+            </Link>
           </InputFormFooter>
         </InputForm>
       </SearchSection>
