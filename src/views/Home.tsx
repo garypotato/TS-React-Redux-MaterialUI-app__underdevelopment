@@ -40,9 +40,9 @@ const Home = () => {
   // * all data for filter
   const [suburb, setSuburb] = useState('')
   const [rent, setRent] = useState(true)
-  const [bedrooms, setBedrooms] = useState(2)
-  const [bathrooms, setBathrooms] = useState(2)
-  const [carspaces, setCarspaces] = useState(1)
+  const [bedrooms, setBedrooms] = useState<number[]>([2, 3])
+  const [bathrooms, setBathrooms] = useState<number[]>([1, 2])
+  const [carspaces, setCarspaces] = useState<number[]>([1, 1])
 
   // * scrollToTopButton display or not
   let showScrollTopButton = useMonitorScrollTop()

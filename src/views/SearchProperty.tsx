@@ -10,6 +10,7 @@ import { IProperty, IRootState } from '../type.d'
 import { separateRentAndSale, setLocalStorage } from '../utils/_utils'
 import URI from 'urijs'
 import CardDisplay from '../components/CardDisplay'
+import { Link } from 'react-router-dom'
 
 const SearchProperty = () => {
   // * get state from 'Redux' and hooks
@@ -33,19 +34,19 @@ const SearchProperty = () => {
   let showScrollTopButton = useMonitorScrollTop()
 
   // * get search result
-  const [suburb, setSuburb] = useState<string>('')
+  const [suburb, setSuburb] = useState('' as string)
   const [rent, setRent] = useState<string>('true')
-  const [bedrooms, setBedrooms] = useState<string>('')
-  const [bathrooms, setBathrooms] = useState<string>('')
-  const [carspaces, setCarspaces] = useState<string>('')
+  const [bedrooms, setBedrooms] = useState([] as number[])
+  const [bathrooms, setBathrooms] = useState([] as number[])
+  const [carspaces, setCarspaces] = useState([] as number[])
   useEffect(() => {
     const queries = URI.parseQuery(window.location.search)
     const { suburb, rent, bedrooms, bathrooms, carspaces } = queries
     setSuburb(suburb)
     setRent(rent)
-    setBedrooms(bedrooms)
-    setBathrooms(bathrooms)
-    setCarspaces(carspaces)
+    setBedrooms(bedrooms.split(','))
+    setBathrooms(bathrooms.split(','))
+    setCarspaces(carspaces.split(','))
   }, [properties])
   // * get search properties
   const [searchProperties, setSearchProperties] = useState([] as IProperty[])
@@ -58,14 +59,16 @@ const SearchProperty = () => {
       })
     }
     temSearchProperties = temSearchProperties.filter(property => {
-      return property.bedrooms === parseInt(bedrooms)
+      return (
+        property.bedrooms >= Number(bedrooms[0]) &&
+        property.bedrooms <= Number(bedrooms[1]) &&
+        property.bathrooms >= Number(bathrooms[0]) &&
+        property.bathrooms <= Number(bathrooms[1]) &&
+        property.carspaces >= Number(carspaces[0]) &&
+        property.carspaces <= Number(carspaces[1])
+      )
     })
-    temSearchProperties = temSearchProperties.filter(property => {
-      return property.bathrooms === parseInt(bathrooms)
-    })
-    temSearchProperties = temSearchProperties.filter(property => {
-      return property.carspaces === parseInt(carspaces)
-    })
+
     setSearchProperties(temSearchProperties)
   }, [suburb, rent, bedrooms, bathrooms, carspaces])
 
@@ -81,7 +84,8 @@ const SearchProperty = () => {
         sx={{
           minHeight: '100vh',
           width: '85%',
-          margin: '0 auto'
+          margin: '0 auto',
+          mb: '10vh'
         }}
       >
         {searchProperties.length !== 0 && (
@@ -89,7 +93,12 @@ const SearchProperty = () => {
             {searchProperties?.map((property, index) => {
               return (
                 <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-                  <CardDisplay data={property} agents={branchInfo.agents} />
+                  <Link
+                    to={`/property?${property.id}`}
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <CardDisplay data={property} agents={branchInfo.agents} />
+                  </Link>
                 </Grid>
               )
             })}
@@ -98,7 +107,7 @@ const SearchProperty = () => {
 
         {searchProperties.length === 0 && (
           <Typography
-            variant="h3"
+            variant="h5"
             sx={{
               position: 'absolute',
               top: '50%',

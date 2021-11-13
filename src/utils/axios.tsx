@@ -24,8 +24,8 @@ class HttpRequest {
       baseURL: this.baseUrl,
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
-        'X-API-Key': 'key_7fd788131671df7ecf20aa3d2fc6f26b'
-        // 'X-API-Key': 'key_f5f68ff415a21f0cbfa41fe387c21bfb'
+        // 'X-API-Key': 'key_7fd788131671df7ecf20aa3d2fc6f26b'
+        'X-API-Key': 'key_f5f68ff415a21f0cbfa41fe387c21bfb'
       },
       timeout: 10000
     }

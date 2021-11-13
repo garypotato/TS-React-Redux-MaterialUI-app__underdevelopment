@@ -12,6 +12,7 @@ import URI from 'urijs'
 import { FC, memo, useEffect, useState } from 'react'
 import { IBranch } from '../../type.d'
 import HeaderMenu from './HeaderMenu'
+import { Link } from 'react-router-dom'
 
 interface IHeaderProps {
   showBranch?: Array<IBranch>
@@ -45,13 +46,13 @@ const Header: FC<IHeaderProps> = props => {
             selectedBranch={selectedBranch}
           />
 
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, color: 'white' }}
-          >
-            Seven
-          </Typography>
+          <Box sx={{ flexGrow: 1 }}>
+            <Link to="/" style={{ textDecoration: 'none' }}>
+              <Typography variant="h6" component="div" sx={{ color: 'white' }}>
+                Seven
+              </Typography>
+            </Link>
+          </Box>
 
           <HeaderMenu
             showBranch={showBranch}

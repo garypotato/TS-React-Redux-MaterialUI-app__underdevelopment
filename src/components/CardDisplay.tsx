@@ -37,7 +37,7 @@ const CardDisplay: FC<ICardDisplayProps> = props => {
   )
 
   return (
-    <Card sx={{ maxWidth: 345, minHeight: 170 }}>
+    <Card sx={{ maxWidth: 345, minHeight: { sm: '528px' } }}>
       <CardHeader
         avatar={
           <Avatar

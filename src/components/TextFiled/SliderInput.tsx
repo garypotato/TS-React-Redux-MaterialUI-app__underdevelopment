@@ -4,9 +4,9 @@ import { FC, memo } from 'react'
 
 interface ISliderInputProps {
   label: string
-  value: number
+  value: number[]
   bottomLine?: boolean
-  setValue: (value: number) => void
+  setValue: (value: number[]) => void
 }
 
 const marks = [
@@ -40,7 +40,7 @@ const SliderInput: FC<ISliderInputProps> = props => {
             max={6}
             marks={marks}
             value={value}
-            onChange={(event, value) => setValue(value as number)}
+            onChange={(event, value) => setValue(value as number[])}
           />
         </Grid>
       </Grid>
