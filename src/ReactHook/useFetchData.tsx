@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getBranchInfo } from '../api/getBranchInfo'
-import { getCompanyBranches } from '../api/getCompanyBranches'
-import { getProperties } from '../api/getProperties'
+import {
+  getBranchInfo,
+  getCompanyBranches,
+  getProperties
+} from '../api/domainAPI'
 import { setDetailBranch } from '../Redux/Reducers/branchInfoReducer/branchInfoActions'
 import {
   setCompanyBranches,

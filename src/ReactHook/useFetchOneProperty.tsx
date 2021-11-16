@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { getOneProperty } from '../api/getOneProperty'
+import { getOneProperty } from '../api/domainAPI'
 import { IProperty, IRootState } from '../type.d'
 const queryString = require('query-string')
 

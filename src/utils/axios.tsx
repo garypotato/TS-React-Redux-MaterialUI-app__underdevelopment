@@ -87,11 +87,15 @@ class HttpRequest {
     this.interceptors(instance)
     return instance(newOptions)
   }
-  get(url: string) {
-    return this.request({
-      method: 'get',
-      url: url
-    })
+  get(url: string, config?: any) {
+    const options = Object.assign(
+      {
+        method: 'get',
+        url: url
+      },
+      config
+    )
+    return this.request(options)
   }
   post(url: string, data?: any) {
     return this.request({

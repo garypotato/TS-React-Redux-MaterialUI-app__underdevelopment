@@ -1,3 +1,5 @@
+import { AxiosResponse } from 'axios'
+
 // * app state
 export interface IRootState {
   company: ICompany
@@ -179,4 +181,9 @@ export interface ITemPropertyElement {
   description: string
   features: string[]
   disclaimer: string
+}
+
+export interface ISeverAPIResponse extends AxiosResponse {
+  code: number
+  data: any
 }
